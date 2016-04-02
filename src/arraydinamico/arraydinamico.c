@@ -15,7 +15,7 @@ int main(void)
 {
 	printf("test array dinamico");
 
-	float array[INITIAL_DIM] = {0}, *temparray;
+	float array[INITIAL_DIM] = {0};
 	int dim = INITIAL_DIM, num = 0; // d è la taglia del vettore, n il numero di elementi contenuti
 
 	printf("\n\nsaranno letti degli elementi da tastiera ");
@@ -40,13 +40,11 @@ int main(void)
 	float input = 0.;
 	do
 	{
-		temparray = array;
-		doublingtest(temparray, &num, &dim);
-		// array = temparray;
+		doublingtest(array, &num, &dim);
 		printf("\ninserire l'elemento #%d: ", num+1);
 		scanf("%f", &input);
 		printf("il valore letto e' %.2f\n", input);
-		temparray[num] = input;
+		array[num] = input;
 		num++;
 	} while (num < final_dim);
 
@@ -54,11 +52,11 @@ int main(void)
 	printf("\n\nil vettore e' stato letto e adesso sara' stampato\n");
 	for (int i = 0; i < dim; i++)
 		if (i == 0)
-			printf("{%.2f, ", temparray[i]);
+			printf("{%.2f, ", array[i]);
 		else if (i == (dim-1))
-			printf("%.2f}\n", temparray[i]);
+			printf("%.2f}\n", array[i]);
 		else
-			printf("%.2f, ", temparray[i]);
+			printf("%.2f, ", array[i]);
 
 	printf("\n\nfine programma\n");
 
